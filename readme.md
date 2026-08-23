@@ -114,7 +114,12 @@ PRNG has **no custom icon font or SVG icon set** in its source. Its icon languag
 - `ui_kits/workshop/` — Workshop zine site
 
 **Brand assets** (`assets/`)
-- `prng_logo_transparent.png` · `prng-banner.png` · `ernie-ritz.png` (photo) · `ernie_cartoon.png` / `ernie_cartoon_small.jpg`
+- `prng_logo_transparent.png` · `PRNG Text.png` · `logo_gbs.png` · `ernie-ritz.png` (photo)
+- The Ernie cartoon is **not** kept here. Its canonical copy is
+  `prngbooks/ernie_cartoon.png`, referenced by that repo's `index.html`.
+  Compressed duplicates (`ernie_cartoon_small.jpg`, `ernie_cartoon_under_1mb.jpg`)
+  lived in this repo, were referenced by nothing, and were removed 2026-08-23.
+  Link to the prngbooks copy rather than adding another.
 
 **Other**
 - `SKILL.md` — Agent Skill manifest for using this system in Claude Code.
