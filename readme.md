@@ -25,13 +25,13 @@ Use the **plum/pink** treatment for branded internal build notes, workflow sheet
 
 These were the inputs. You may not have access, but they're recorded so a reader who does can dig deeper and build more faithfully:
 
-- **GitHub — `github.com/punkrocknerdgirl/prngbooks`** — the official PRNG Bookkeeping marketing site (HTML + CSS). Primary source of truth for the marketing surface, colors, and type.
-- **GitHub — `github.com/punkrocknerdgirl/diane`** — Project Diane (trucking ticketing/invoicing). Currently a stub repo.
-- Other repos in the org worth exploring: `punkrocknerdgirl/ed` (personal AI wrangler), `punkrocknerdgirl/kwisatz` (QBO receipt search utility).
+- **PRNG Bookkeeping marketing site** (HTML + CSS) — primary source of truth for the marketing surface, colors, and type. _Private repo — not publicly accessible._
+- **Project Diane** — trucking ticketing/invoicing. _Private repo — not publicly accessible._
+- Public repos worth exploring: `github.com/punkrocknerdgirl/ed` (personal AI wrangler), `github.com/punkrocknerdgirl/antihub` (QBO receipt search utility, part of Project Kwisatz).
 - `uploads/punkrocknerdgirl claude.html` — the Workshop / build-log zine site. Source for the editorial surface.
 - `uploads/PRNG Banner 1.png`, `prng_logo_transparent.png`, `ernie_cartoon*.jpg/png` — brand imagery (copied into `assets/`).
 
-> Explore the GitHub repositories above to build more accurately against the real product over time.
+> Where the source is public, explore it to build more accurately against the real product over time.
 
 ---
 

@@ -1,6 +1,6 @@
 # PRNG Bookkeeping — Marketing Site UI Kit
 
-High-fidelity recreation of **prngbooks.com**, the client-facing landing page for PRNG Bookkeeping Services. Source: `github.com/punkrocknerdgirl/prngbooks`.
+High-fidelity recreation of **prngbooks.com**, the client-facing landing page for PRNG Bookkeeping Services. Source repo is private.
 
 ## Screens
 - `Nav.jsx` — fixed dark nav, pink underline, uppercase links + Book-a-Call CTA.
