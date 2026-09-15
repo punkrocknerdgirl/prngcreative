@@ -28,12 +28,16 @@ nav a.cta:hover { background:var(--plum); }
 .post-body pre { background:var(--plum-dark); color:#fff; padding:1.1rem 1.25rem; border-left:3px solid var(--pink); margin:1.25rem 0 1.25rem; overflow-x:auto; }
 .post-body pre code { background:none; color:inherit; padding:0; font-size:0.9rem; line-height:1.6; }
 
-.say { border-left:3px solid var(--rule); padding-left:1rem; }
-.say .who { font-family:var(--mono); font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; display:block; margin-bottom:0.2rem; }
-.say-ernie { border-color:var(--pink); }
+/* Conversation transcript: a continuous shaded strip, distinct from commentary */
+.post-body .say { margin:0; padding:1rem 1.25rem; font-size:0.95rem; line-height:1.65; border-left:3px solid var(--rule); }
+.say .who { font-family:var(--mono); font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; display:block; margin-bottom:0.3rem; }
+.say-ernie { border-color:var(--pink); background:var(--blush-light); }
 .say-ernie .who { color:var(--pink); }
-.say-ed { border-color:var(--plum); background:var(--blush-light); padding:0.75rem 1rem; }
+.say-ed { border-color:var(--plum); background:var(--blush); }
 .say-ed .who { color:var(--plum); }
+.post-body :not(.say) + .say { margin-top:1.75rem; }
+.post-body .say + :not(.say) { margin-top:1.75rem; }
+.post-body .say + .say { border-top:1px solid rgba(255,255,255,0.7); }
 
 .post-foot { margin-top:3.5rem; padding-top:1.75rem; border-top:1px solid var(--rule); color:var(--muted); font-size:0.95rem; }
 .post-foot p { margin-bottom:0.9rem; }
