@@ -480,6 +480,11 @@
       line-height: 1.65;
     }
 
+    .note-link { text-decoration:none; color:inherit; display:block; cursor:pointer; }
+    .note-link:hover { background: rgba(201,83,140,0.08); }
+    .note-link h4 { font-family: var(--display); font-style: italic; color:#fff; font-size:1.15rem; margin:0.4rem 0 0.5rem; line-height:1.25; }
+    .note-link p { color: rgba(255,255,255,0.6); font-size:0.9rem; }
+    .note-link .note-meta { color: var(--pink); opacity:0.8; }
     .note-meta {
       font-family: var(--mono);
       font-size: 0.62rem;
@@ -726,7 +731,7 @@
   <header>
     <a class="wordmark" href="#">punkrocknerdgirl<span>.com</span></a>
     <nav>
-      <a href="#what">What's here</a>
+      <a href="#buildlog">Build log</a>
       <a href="#projects">Projects</a>
       <a href="#about">About</a>
       <a href="https://prngbooks.com" class="cta">Hire me →</a>
@@ -744,7 +749,7 @@
         </p>
         <div class="hero-buttons">
           <a href="#what" class="btn btn-primary">See what's here</a>
-          <a href="#projects" class="btn btn-ghost">Active build log →</a>
+          <a href="#buildlog" class="btn btn-ghost">Read the build log →</a>
         </div>
       </div>
 
@@ -827,38 +832,20 @@
 
   <hr class="rule" />
 
-  <!-- FIELD NOTES PREVIEW -->
-  <section class="notes-section">
+  <!-- BUILD LOG -->
+  <section class="notes-section" id="buildlog">
     <div class="section-inner">
-      <p class="section-eyebrow">// recent captures</p>
-      <h2 class="section-heading">From the notebook</h2>
-      <p class="section-body">Real build notes from the last two work sessions. Repo cleanup, project splits, and the first pass at this workshop site.</p>
+      <p class="section-eyebrow">// build log</p>
+      <h2 class="section-heading">What I broke, fixed, or finally understood</h2>
+      <p class="section-body">Real build notes, written up. Ed is the AI I build with — I'm the bookkeeper, Ed knows what the command does before I run it. The back-and-forth is real, lightly edited so the funny parts land and the boring parts don't.</p>
       <div class="notes-grid">
-        <div class="note-card">
-          <span class="note-tag">2026-06-27 · PRNG Creative</span>
-          <p>Stood up the PRNG Creative repo as the public design-system and workshop home: brand tokens, component examples, UI kits, and the first real notebook cleanup.</p>
-          <p class="note-meta">build-log · site setup</p>
-        </div>
-        <div class="note-card">
-          <span class="note-tag">2026-06-26 · Git cleanup</span>
-          <p>Learned the hard way that the parent projects folder should not be its own Git repo when each project folder needs clean, separate history. Moved the accidental parent <code>.git</code> aside.</p>
-          <p class="note-meta">build-log · repo hygiene</p>
-        </div>
-        <div class="note-card">
-          <span class="note-tag">2026-06-26 · Diane</span>
-          <p>Connected Project Diane to GitHub after resolving the remote readme conflict. Kept the real local README, merged the unrelated starter history, and got main clean.</p>
-          <p class="note-meta">build-log · project diane</p>
-        </div>
-        <div class="note-card">
-          <span class="note-tag">2026-06-26 · Ed</span>
-          <p>Initialized Project Ed safely by writing the ignore rules first, keeping secret-bearing test/config files out of Git, then committing only the local caller docs and safe starter files.</p>
-          <p class="note-meta">build-log · safe commit</p>
-        </div>
-        <div class="note-card">
-          <span class="note-tag">2026-06-26 · PRNG Books</span>
-          <p>Split public bookkeeping web work from client-facing pages: <code>prng_books</code> stays clean and public, while quotes, estimates, and report links move into a separate client repo.</p>
-          <p class="note-meta">build-log · repo split</p>
-        </div>
+        <!-- POSTS: newest first -->
+        <a class="note-card note-link" href="build_log/git-doesnt-stand-for-anything.html">
+          <span class="note-tag">2026-09-15 · git</span>
+          <h4>Git doesn't stand for anything</h4>
+          <p>A month of committing before I asked what the word meant. Git is the camera, GitHub is Mom's fridge, and I'd been calling the camera the fridge the whole time.</p>
+          <p class="note-meta">read it →</p>
+        </a>
       </div>
     </div>
   </section>
@@ -1002,7 +989,7 @@
         <span style="font-size:0.6rem;">PRNG Bookkeeping is one branch of this. Not the whole thing.</span>
       </p>
       <div class="footer-links">
-        <a href="#what">What's here</a>
+        <a href="#buildlog">Build log</a>
         <a href="#projects">Projects</a>
         <a href="https://prngbooks.com">PRNG Bookkeeping Services</a>
         <a href="https://github.com/punkrocknerdgirl">GitHub</a>

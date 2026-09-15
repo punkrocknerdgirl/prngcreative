@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git doesn&#x27;t stand for anything — punkrocknerdgirl</title>
+  <meta name="description" content="Build log: Git doesn&#x27;t stand for anything" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Roboto+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="post.css" />
+</head>
+<body>
+  <header>
+    <a class="wordmark" href="../">punkrocknerdgirl<span>.com</span></a>
+    <nav>
+      <a href="../#buildlog">Build log</a>
+      <a href="../#projects">Projects</a>
+      <a href="../#about">About</a>
+      <a href="https://prngbooks.com" class="cta">Hire me →</a>
+    </nav>
+  </header>
+
+  <main class="post">
+    <div class="post-head">
+      <p class="post-meta">// build log · 2026-09-15</p>
+      <h1>Git doesn't stand for anything</h1>
+    </div>
+    <figure class="hero-img"><img src="../assets/blog/git-doesnt-stand-for-anything.jpg" alt="Git doesn&#x27;t stand for anything" /></figure>
+    <article class="post-body">
+<p class="eyebrow">// build log · field notes · the &quot;wait, what am I actually doing&quot; edition</p>
+<p class="say say-ernie"><span class="who">Ernie</span>I've been git-ing and committing for a month and I do not know what git stands for. I understand <code>ls -la</code>. That's what I remember from before my knees started hurting. I'm really just a monkey punching keys right now.</p>
+<div class="say say-ed"><span class="who">Ed</span>
+<p>Oh Lort. Let's start at the beginning, mee-maw.</p>
+</div>
+<h2>Where I was when I stopped</h2>
+<p>The morning was repo necromancy. My local folder had lost its connection to GitHub, my site had vanished, and Ed walked me through fixing both. When <code>git status</code> finally said <code>nothing to commit, working tree clean</code>, I fist-pumped like I knew what that meant.</p>
+<p>I had no idea what that meant or what I was typing into Terminal — but boy, was I typing it fast. Faint memories of DOS from the stone ages; this felt similar. I could get this. <em>Get.</em> Git. GIT. WTF does Git stand for? Where I'm from, it's what old women in aprons say to stray dogs. <em>Go on, now — git!</em></p>
+<h2>The question</h2>
+<p>My entire pitch is that I know the systems and the industries I build for. Trucking, construction, QBO — I don't hand a client a tool I can't explain. And there I was, a month deep, running a tool I couldn't explain. I felt like I should probably learn some shit about the shit I'm making. <em>(Duh, bitch. That's your entire philosophy.)</em></p>
+<p class="say say-ernie"><span class="who">Ernie</span>Explain this to me like I'm a fucking 10-year-old. Or 5. I don't know; what age do kids start coding these days?</p>
+<div class="say say-ed"><span class="who">Ed</span>
+<p>Younger than you'd like. Okay. Git.</p>
+</div>
+<h2>It doesn't stand for anything</h2>
+<p class="say say-ernie"><span class="who">Ernie</span>So I finally looked it up. The fact that it's legit a dude naming it after himself as an insult is the greatest naming convention ever.</p>
+<div class="say say-ed"><span class="who">Ed</span>
+<p>Linus Torvalds, 2005, wrote it in about ten days after the Linux team's version-control deal fell apart. "Git" is British slang for an unpleasant person. He named it after himself. Yes, it's great.</p>
+</div>
+<p>I seriously thought I was about to get some insight on why the <em>command</em> is called "git." Turns out — dun dun dun — it's not a command. It's the whole fucking program. And it stands for absolutely nothing. And that's what makes it great.</p>
+<h2>The thing that made it click</h2>
+<div class="say say-ed"><span class="who">Ed</span>
+<p>Forget "upload." Think about your kitchen.</p>
+<p>Your project folder is the kitchen. Everything in it — pots, pans, the half-chopped onion — that's your files.</p>
+<p><strong>Save</strong> (⌘S) is a sticky note. "Added garlic." One note, one thing.</p>
+<p><strong>Commit</strong> is a Polaroid of the <em>entire kitchen</em>, dated, stuck on the fridge. Every pot, every counter, the onion, frozen. Do that every time something meaningful changes and you get a stack: Monday's kitchen, Tuesday's, Thursday's.</p>
+<p>That's the time-machine part. Git can rebuild the kitchen <em>exactly</em> as it looked in any photo. Burned the sauce Thursday? Go back to Wednesday's. Nothing is ever really lost. And Git doesn't re-shoot every pot each time — it looks at the last photo and only notes what changed: "garlic added, pan moved." That's why it's fast.</p>
+<p><strong>Push</strong> is mailing copies of the Polaroids to your mom's house. That's GitHub. If your kitchen burns down, the photos are still at Mom's.</p>
+<p><strong>Git is the camera. GitHub is Mom's fridge.</strong> The camera works fine without the fridge. The fridge is bare without the camera.</p>
+</div>
+<p class="say say-ernie"><span class="who">Ernie</span>…so I've been calling the camera "the fridge" for a month.</p>
+<div class="say say-ed"><span class="who">Ed</span>
+<p>Yes, mee-maw.</p>
+</div>
+<h2>What I actually type all day</h2>
+<pre><code>git status
+git add .
+git commit -m &quot;why it changed&quot;
+git push</code></pre>
+<p>Status, photo, caption, mail it to Mom. That's 95% of my day.</p>
+<h2>The pledge</h2>
+<p>A month into using what might as well have been dark magic, I realized I'd been throwing ingredients into the pot with zero idea whether it'd taste good, taste like shit, or kill somebody with a nut allergy. Reading the recipe, measuring out jack. Breaking my own main rule: don't use tools — or build for industries — you don't actually understand. I don't need to be Julia Child. I should be able to tell flour from sugar.</p>
+<p>Once I understood <em>why</em> the flavors went together, the whole thing made sense. So, a pledge: read the recipe and learn the ingredients before I turn on the stove. Lest I make a pot of cabbage water seasoned with cilantro, Tabasco, rocky road ice cream, and bay leaves — and then wonder why the rest of the household has evacuated.</p>
+    </article>
+    <aside class="post-foot">
+      <p class="eyebrow">// who's ed?</p>
+      <p>Ed is the AI I build with. I'm the bookkeeper; Ed is the one who knows what the command does before I run it. The back-and-forth in these posts is real — lightly edited so the funny parts land and the boring parts don't. When Ed sounds smug, that's accurate. When I sound lost, also accurate.</p>
+      <p><a href="../#buildlog">← all build log posts</a></p>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-word"><strong>punkrocknerdgirl</strong> — the workshop<br><span style="font-size:0.6rem;">PRNG Bookkeeping is one branch of this. Not the whole thing.</span></p>
+      <div class="footer-links">
+        <a href="../#buildlog">Build log</a>
+        <a href="https://prngbooks.com">PRNG Bookkeeping Services</a>
+        <a href="https://github.com/punkrocknerdgirl">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
