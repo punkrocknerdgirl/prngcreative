@@ -102,26 +102,25 @@
       z-index: 0;
     }
 
+    /* one narrow centred column: picture on top, headline, three short
+       lines side by side, buttons, repo line. Big monitors get plum on
+       both sides instead of a bigger Ernie. */
     .hero-inner {
       position: relative;
       z-index: 1;
-      max-width: var(--site-width);
+      max-width: 880px;
       margin: 0 auto;
-      padding: 3.5rem 2rem 3rem;
-      display: grid;
-      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-      gap: 3rem;
-      align-items: center;
+      padding: 0 2rem 2.75rem;
+      text-align: center;
     }
 
-    /* ── hero art ─────────────────────────────────────────────── */
-    /* vignette: no frame, the picture just fades into the plum at its edges */
+    /* ── hero art: fades into the plum on every side ─────────── */
     .hero-art {
-      margin: 0;
+      margin: 0 auto 0.5rem;
       aspect-ratio: 3 / 2;
       overflow: hidden;
-      -webkit-mask-image: radial-gradient(ellipse 58% 56% at 50% 50%, #000 30%, rgba(0,0,0,0.45) 62%, transparent 92%);
-              mask-image: radial-gradient(ellipse 58% 56% at 50% 50%, #000 30%, rgba(0,0,0,0.45) 62%, transparent 92%);
+      -webkit-mask-image: radial-gradient(ellipse 62% 66% at 50% 42%, #000 40%, rgba(0,0,0,0.5) 70%, transparent 96%);
+              mask-image: radial-gradient(ellipse 62% 66% at 50% 42%, #000 40%, rgba(0,0,0,0.5) 70%, transparent 96%);
     }
     .hero-art img {
       display: block;
@@ -129,8 +128,6 @@
       height: 100%;
       object-fit: cover;
     }
-
-    .hero-copy { text-align: left; }
 
     .hero-eyebrow {
       font-family: var(--mono);
@@ -144,28 +141,30 @@
     .hero h1 {
       font-family: var(--display);
       font-style: italic;
-      font-size: clamp(2.1rem, 4.4vw, 3.3rem);
+      font-size: clamp(2.6rem, 6.5vw, 4.6rem);
       color: #fff;
-      line-height: 1.12;
-      margin-bottom: 1.5rem;
+      line-height: 1.08;
+      margin-bottom: 2.25rem;
     }
     .hero h1 em {
       color: var(--pink);
       font-style: italic;
     }
 
-    /* the "here is me" list: one short line each, pink tick down the left */
+    /* the "here is me" list: three short columns, pink tick down each */
     .hero-list {
       list-style: none;
-      margin: 0 0 2rem;
+      margin: 0 0 2.25rem;
       padding: 0;
-      max-width: 560px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      text-align: left;
     }
     .hero-list li {
       padding-left: 1rem;
       border-left: 2px solid var(--pink);
-      margin-bottom: 0.9rem;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       line-height: 1.6;
       color: rgba(255,255,255,0.62);
     }
@@ -177,27 +176,24 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #fff;
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.35rem;
     }
 
     .hero-buttons {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
-    /* ── repo rail: a thin strip under the hero ───────────────── */
+    /* ── repo line under the buttons ──────────────────────────── */
     .repo-rail {
-      position: relative;
-      z-index: 1;
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       align-items: center;
-      gap: 1.1rem 1.4rem;
-      max-width: var(--site-width);
-      margin: 0 auto;
-      padding: 0.7rem 2rem;
-      border-top: 1px solid rgba(245,214,232,0.12);
+      gap: 0.8rem 1.6rem;
+      margin-top: 1.5rem;
     }
     .repo-rail a,
     .rail-kicker {
@@ -210,7 +206,7 @@
     .rail-kicker { color: rgba(245,214,232,0.4); }
     .repo-rail a { color: rgba(245,214,232,0.72); transition: color 0.15s; }
     .repo-rail a:hover { color: var(--pink); }
-    .repo-rail .rail-more { margin-left: auto; letter-spacing: 0; font-size: 0.95rem; color: rgba(245,214,232,0.45); }
+    .repo-rail .rail-more { letter-spacing: 0; font-size: 0.95rem; color: rgba(245,214,232,0.45); }
     .repo-rail .rail-more:hover { color: var(--pink); }
 
     .btn {
@@ -627,10 +623,26 @@
     }
 
     /* ── ABOUT STRIP ──────────────────────────────────────────── */
+    /* dark, over the desk scene. The plum wash is heaviest at the top where
+       the text is and thins toward the desk; extra bottom padding keeps the
+       books and notebook clear of the columns. */
     .about-section {
-      background: #fff;
-      border-top: 1px solid var(--rule);
+      background:
+        linear-gradient(to bottom, rgba(58,16,37,0.92) 0%, rgba(58,16,37,0.78) 45%, rgba(58,16,37,0.25) 100%),
+        url("assets/hero/desk.jpg") center bottom / cover no-repeat var(--plum-dark);
+      border-top: 2px solid var(--pink);
+      padding-bottom: 19rem;
     }
+    .about-section .section-eyebrow { color: var(--pink); }
+    .about-section .section-heading { color: #fff; }
+    .about-section .about-text p { color: rgba(255,255,255,0.72); }
+    .about-section .about-text p a { color: var(--blush); }
+    .about-section .about-text p a:hover { color: #fff; }
+    .about-section .tag { border-color: rgba(245,214,232,0.3); color: rgba(245,214,232,0.75); }
+    .about-section .sidebar-item { border-bottom-color: rgba(255,255,255,0.12); }
+    .about-section .sidebar-item p { color: rgba(255,255,255,0.6); }
+    .about-section .sidebar-item a { color: var(--blush); }
+    .about-section .sidebar-item a:hover { color: var(--pink); }
 
     .about-inner {
       max-width: var(--site-width);
@@ -737,9 +749,8 @@
     /* ── RESPONSIVE ───────────────────────────────────────────── */
     /* ── RESPONSIVE ───────────────────────────────────────────── */
     @media (max-width: 820px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 1.25rem 2.5rem; }
-      .hero-art { max-width: 520px; }
-      .repo-rail { padding: 0.7rem 1.25rem; }
+      .hero-inner { padding: 0 1.25rem 2.5rem; }
+      .hero-list { grid-template-columns: 1fr; gap: 1rem; }
     }
 
     @media (max-width: 680px) {
@@ -784,29 +795,26 @@
              fetchpriority="high" />
       </figure>
 
-      <div class="hero-copy">
-        <p class="hero-eyebrow">// here is me</p>
-        <h1>Real work.<br><em>Real systems.</em><br>Real exasperation.</h1>
-        <ul class="hero-list">
-          <li><strong>This is me</strong>Ernie. Working bookkeeper, systems builder, pink hair, one dog named Charlie.</li>
-          <li><strong>This is what I do</strong>Clean up books, build the systems around them, and document what I'm actually building, learning, and really screwing up. In public, with zero smart people talk.</li>
-          <li><strong>This is what you get</strong>Witness me break shit on purpose in real time, then laugh yourself hoarse as you watch me try to put it back together without pitching a hissy fit.</li>
-        </ul>
-        <div class="hero-buttons">
-          <a href="#what" class="btn btn-primary">See what's here</a>
-          <a href="#buildlog" class="btn btn-ghost">Read the build log →</a>
-        </div>
+      <p class="hero-eyebrow">// here is me</p>
+      <h1>Real work.<br><em>Real systems.</em><br>Real exasperation.</h1>
+      <ul class="hero-list">
+        <li><strong>This is me</strong>Ernie. Working bookkeeper, systems builder, pink hair, one dog named Charlie.</li>
+        <li><strong>This is what I do</strong>Clean up books, build the systems around them, and document what I'm actually building, learning, and really screwing up. In public, with zero smart people talk.</li>
+        <li><strong>This is what you get</strong>Witness me break shit on purpose in real time, then laugh yourself hoarse as you watch me try to put it back together without pitching a hissy fit.</li>
+      </ul>
+      <div class="hero-buttons">
+        <a href="#what" class="btn btn-primary">See what's here</a>
+        <a href="#buildlog" class="btn btn-ghost">Read the build log →</a>
       </div>
-    </div>
 
-    <!-- thin repo rail under the hero -->
-    <aside class="repo-rail" aria-label="GitHub repositories">
-      <span class="rail-kicker">// repos</span>
-      <a href="https://github.com/punkrocknerdgirl/prngcreative">prngcreative</a>
-      <a href="https://github.com/punkrocknerdgirl/ed">ed</a>
-      <a href="https://github.com/punkrocknerdgirl/antihub">antihub</a>
-      <a class="rail-more" href="#github" aria-label="Open the full repo shelf">↓</a>
-    </aside>
+      <aside class="repo-rail" aria-label="GitHub repositories">
+        <span class="rail-kicker">// repos</span>
+        <a href="https://github.com/punkrocknerdgirl/prngcreative">prngcreative</a>
+        <a href="https://github.com/punkrocknerdgirl/ed">ed</a>
+        <a href="https://github.com/punkrocknerdgirl/antihub">antihub</a>
+        <a class="rail-more" href="#github" aria-label="Open the full repo shelf">↓</a>
+      </aside>
+    </div>
   </div>
 
   <!-- SPLIT BANNER: workshop / front desk -->
