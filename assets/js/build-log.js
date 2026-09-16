@@ -42,7 +42,10 @@
         a.textContent = 'permalink ↗';
         meta.append(a);
       }
-      article.replaceChildren(head, ...(hero ? [hero] : []), body);
+      // the image usually lives inside the body (after the eyebrow); only
+      // carry it over separately when a post keeps it outside
+      const loose = hero && !body.contains(hero) ? [hero] : [];
+      article.replaceChildren(head, ...loose, body);
       article.dataset.title = head.querySelector('h1')?.textContent.trim() || '';
     } catch (err) {
       // leave the fallback link in place; the post is still one click away
