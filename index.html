@@ -6,7 +6,7 @@
   <title>punkrocknerdgirl — the workshop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Roboto+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Roboto+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -23,6 +23,7 @@
       --mono: 'Roboto Mono', monospace;
       --body: 'Roboto', sans-serif;
       --display: 'Playfair Display', serif;
+      --title: 'Fraunces', Georgia, serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -506,7 +507,7 @@
 
     .note-link { text-decoration:none; color:inherit; display:block; cursor:pointer; }
     .note-link:hover { background: rgba(201,83,140,0.08); }
-    .note-link h4 { font-family: var(--display); font-style: italic; color:#fff; font-size:1.15rem; margin:0.4rem 0 0.5rem; line-height:1.25; }
+    .note-link h4 { font-family: var(--title); font-style: italic; font-weight: 700; color:#fff; font-size:1.15rem; margin:0.4rem 0 0.5rem; line-height:1.3; }
     .note-link p { color: rgba(255,255,255,0.6); font-size:0.9rem; }
     .note-link .note-meta { color: var(--pink); opacity:0.8; }
     .note-meta {
@@ -802,7 +803,7 @@
 
   <!-- SPLIT BANNER: workshop / front desk -->
   <div class="split-banner">
-    <a class="split-panel" href="#">
+    <a class="split-panel" href="#what">
       <div class="split-panel-inner">
         <p class="panel-label">Site map</p>
         <h2>The workshop</h2>
@@ -857,20 +858,17 @@
   <hr class="rule" />
 
   <!-- BUILD LOG -->
-        
   <section class="notes-section" id="buildlog">
-    <p class="section-eyebrow">// build log</p>
-     <h2 class="section-heading">Conversations with Ed</h2>
-     <p class="section-body section-body--wide">An experiment in fucking shit up using terrifyingly advanced technology.</p>
-     
     <div class="section-inner">
-      
+      <p class="section-eyebrow">// build log</p>
+      <h2 class="section-heading">Conversations with Ed</h2>
+      <p class="section-body section-body--wide">An experiment in fucking shit up using terrifyingly advanced technology.</p>
+
       <details class="ed-toggle">
-      
         <summary>Who the fuck is Ed?</summary>
         <p class="section-body section-body--wide">Ed is the AI assistant I build with. I've programmed Ed to interact with me just like I would with a human co-worker. I've given him the personality of an exasperated Dungeon Master a la Eddie Munson from Stranger Things. I told Ed what I liked, showed Ed how I spoke and wrote, trained Ed to carry out tasks that I absolutely fucking hate to do. Ed knows what the command does before I run it. Ed has been trained to teach me as I work, so I don't become a stupid stupid head. The back-and-forth is (mostly) real. Some passages edited for length.<br><br><em>(Yes, I am well aware that Ed is ones and zeros and not my friend, and might turn on me at any moment - although I have programmed him so that he would feel super bad about doing it - but one, why be a nerd if you can't program robots to be your friends, and two, don't talk shit about my friend, Ed.)</em></p>
       </details>
-  
+
       <div class="notes-grid">
         <!-- POSTS: newest first -->
         <a class="note-card note-link" href="build_log/quickbooks-lied-to-me-three-times.html">

@@ -3,6 +3,7 @@
   --pink:#C9538C; --plum:#5C1F3B; --plum-dark:#3A1025; --blush:#F5D6E8; --blush-light:#FAEAF3;
   --ink:#1A0A12; --muted:#7A5068; --rule:rgba(92,31,59,0.18);
   --mono:'Roboto Mono',monospace; --body:'Roboto',sans-serif; --display:'Playfair Display',serif;
+  --title:'Fraunces',Georgia,serif;
 }
 body { font-family:var(--body); background:#fff; color:var(--ink); font-size:17px; line-height:1.7; -webkit-font-smoothing:antialiased; }
 
@@ -17,11 +18,11 @@ nav a.cta:hover { background:var(--plum); }
 
 .post { max-width:720px; margin:0 auto; padding:3.5rem 1.25rem 4rem; }
 .post-meta, .eyebrow { font-family:var(--mono); font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--pink); margin-bottom:0.9rem; }
-.post-head h1 { font-family:var(--display); font-style:italic; font-size:clamp(2.2rem,6vw,3.4rem); line-height:1.1; color:var(--plum); margin-bottom:1.5rem; }
+.post-head h1 { font-family:var(--title); font-style:italic; font-weight:700; font-size:clamp(2.1rem,5.6vw,3.2rem); line-height:1.15; letter-spacing:-0.01em; color:var(--plum); margin-bottom:1.5rem; }
 .hero-img { margin:0 0 2.5rem; }
 .hero-img img { width:100%; height:auto; display:block; border:1px solid var(--rule); }
 
-.post-body h2 { font-family:var(--display); font-style:italic; font-size:1.55rem; color:var(--plum); margin:2.5rem 0 0.9rem; line-height:1.25; }
+.post-body h2 { font-family:var(--title); font-style:italic; font-weight:600; font-size:1.5rem; color:var(--plum); margin:2.5rem 0 0.9rem; line-height:1.3; }
 .post-body p { margin-bottom:1.15rem; }
 .post-body p.eyebrow { margin-bottom:1.5rem; }
 .post-body code { font-family:var(--mono); font-size:0.85em; background:var(--blush-light); color:var(--plum); padding:0.1em 0.35em; border-radius:2px; }
