@@ -35,6 +35,15 @@ a:focus-visible, summary:focus-visible { outline:2px solid var(--pink); outline-
 
 .hero-img { margin:0 0 2.5rem; }
 .hero-img img { width:100%; height:auto; display:block; border:1px solid var(--rule); }
+/* Post image tucked into a top corner with the text wrapping around it.
+   Alternate the class post to post: hero-img--left, then --right, and so on. */
+.hero-img--left, .hero-img--right { width:44%; margin:0.35rem 0 0.9rem; }
+.hero-img--left  { float:left;  margin-right:1.75rem; }
+.hero-img--right { float:right; margin-left:1.75rem; }
+.post::after { content:""; display:block; clear:both; }
+/* conversation strips sit beside the float instead of running under it */
+.post-body .say { overflow:hidden; }
+@media (max-width:640px){ .hero-img--left, .hero-img--right { float:none; width:100%; margin:0 0 1.75rem; } }
 
 .post-body h2 { font-family:var(--title); font-style:italic; font-weight:600; font-size:1.5rem; color:var(--plum); margin:2.5rem 0 0.9rem; line-height:1.3; }
 .post-body p { margin-bottom:1rem; }
@@ -103,7 +112,7 @@ footer { background:var(--plum-dark); padding:2.5rem 2rem; border-top:2px solid 
 .reading-bar .rb-label { color:var(--pink); flex-shrink:0; }
 .reading-bar .rb-title { color:var(--plum); font-family:var(--title); font-style:italic; font-weight:700; font-size:0.95rem; letter-spacing:0; text-transform:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; }
 .reading-bar .rb-count { color:var(--muted); margin-left:auto; flex-shrink:0; }
-.scroll-post { scroll-margin-top:calc(var(--hdr,56px) + 2.6rem); }
+.scroll-post { scroll-margin-top:calc(var(--hdr,56px) + 3.6rem); }
 .scroll-post + .scroll-post { border-top:2px solid var(--pink); position:relative; }
 .scroll-post + .scroll-post::before { content:"// keep reading"; position:absolute; top:-0.7rem; left:1.25rem; background:#fff; padding:0 0.5rem; font-family:var(--mono); font-size:0.66rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--pink); }
 .scroll-post .permalink { font-family:var(--mono); font-size:0.7rem; letter-spacing:0.08em; color:var(--muted); text-decoration:none; margin-left:0.75rem; }
