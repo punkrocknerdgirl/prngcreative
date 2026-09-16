@@ -5,8 +5,8 @@ keep the filenames exactly. No code changes needed when the real art lands.
 
 | File | Size | Aspect | Used when |
 |---|---|---|---|
-| `assets/hero/hero.jpg` | 1800 × 2000 | 9:10 portrait | viewport wider than 900px |
-| `assets/hero/hero-wide.jpg` | 1800 × 1000 | 9:5 landscape | viewport 900px and under |
+| `assets/hero/hero.jpg` | 1800 × 2000 | 9:10 portrait | viewport wider than 1100px |
+| `assets/hero/hero-wide.jpg` | 1800 × 1000 | 9:5 landscape | viewport 1100px and under |
 
 ## Why two files
 
@@ -26,7 +26,7 @@ visitor's screen. Anything that must survive goes in the middle.
   which corresponds exactly to that square. The pink guide in the placeholder
   marks it.
 - **`hero-wide.jpg`** — keep the subject inside the centre **86% wide × 80%
-  tall**. Rendered aspect runs 1.5 (small phone) to 2.25 (900px), so the
+  tall**. Rendered aspect runs 1.5 (small phone) to 2.75 (1100px), so the
   vertical crop is the tight one here.
 
 Don't put text or anything that reads as a hard edge near the outer margins —
