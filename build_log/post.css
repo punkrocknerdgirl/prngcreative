@@ -5,7 +5,7 @@
   --mono:'Roboto Mono',monospace; --body:'Roboto',sans-serif; --display:'Playfair Display',serif;
   --title:'Fraunces',Georgia,serif;
 }
-body { font-family:var(--body); background:#fff; color:var(--ink); font-size:17px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+body { font-family:var(--body); background:#fff; color:var(--ink); font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; }
 
 header { background:var(--plum-dark); padding:1rem 2rem; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; border-bottom:2px solid var(--pink); }
 .wordmark { font-family:var(--mono); font-size:0.85rem; font-weight:600; color:var(--pink); letter-spacing:0.04em; text-decoration:none; }
@@ -37,7 +37,7 @@ a:focus-visible, summary:focus-visible { outline:2px solid var(--pink); outline-
 .hero-img img { width:100%; height:auto; display:block; border:1px solid var(--rule); }
 
 .post-body h2 { font-family:var(--title); font-style:italic; font-weight:600; font-size:1.5rem; color:var(--plum); margin:2.5rem 0 0.9rem; line-height:1.3; }
-.post-body p { margin-bottom:1.15rem; }
+.post-body p { margin-bottom:1rem; }
 .post-body p.eyebrow { margin-bottom:1.5rem; }
 .post-body code { font-family:var(--mono); font-size:0.85em; background:var(--blush-light); color:var(--plum); padding:0.1em 0.35em; border-radius:2px; }
 /* prose links inside a post */
@@ -48,14 +48,14 @@ a:focus-visible, summary:focus-visible { outline:2px solid var(--pink); outline-
 .post-body pre code { background:none; color:inherit; padding:0; font-size:0.9rem; line-height:1.6; }
 
 /* Conversation transcript: a continuous shaded strip, distinct from commentary */
-.post-body .say { margin:0; padding:1rem 1.25rem; font-size:0.95rem; line-height:1.65; border-left:3px solid var(--rule); }
+.post-body .say { margin:0; padding:0.7rem 1rem; font-size:0.9rem; line-height:1.55; border-left:3px solid var(--rule); }
 .say .who { font-family:var(--mono); font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; display:block; margin-bottom:0.3rem; }
 .say-ernie { border-color:var(--pink); background:var(--blush-light); }
 .say-ernie .who { color:var(--pink); }
-.say-ed { border-color:var(--plum); background:var(--blush); }
+.say-ed { border-color:var(--plum); background:#F7E2EE; }
 .say-ed .who { color:var(--plum); }
-.post-body :not(.say) + .say { margin-top:1.75rem; }
-.post-body .say + :not(.say) { margin-top:1.75rem; }
+.post-body :not(.say) + .say { margin-top:1.25rem; }
+.post-body .say + :not(.say) { margin-top:1.25rem; }
 .post-body .say + .say { border-top:1px solid rgba(255,255,255,0.7); }
 
 .post-foot { margin-top:3.5rem; padding-top:1.75rem; border-top:1px solid var(--rule); color:var(--muted); font-size:0.95rem; }
@@ -78,7 +78,7 @@ a:focus-visible, summary:focus-visible { outline:2px solid var(--pink); outline-
    "all build log posts" link and would otherwise win on equal specificity */
 .ed-bio-body a {
   font-family:var(--body); font-size:1em; letter-spacing:normal;
-  color:var(--plum); font-weight:700;
+  color:var(--plum); font-weight:400;
   text-decoration:underline; text-decoration-color:var(--pink);
   text-decoration-thickness:1px; text-underline-offset:0.18em;
   transition:color 0.15s, text-decoration-color 0.15s;
@@ -93,7 +93,7 @@ footer { background:var(--plum-dark); padding:2.5rem 2rem; border-top:2px solid 
 .footer-links a { font-family:var(--mono); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.55); text-decoration:none; }
 .footer-links a:hover { color:var(--pink); }
 @media (max-width:640px){ header{padding:0.85rem 1rem} nav{gap:1rem} nav a{font-size:0.68rem} }
-.say-ed p { margin-bottom:0.8rem; }
+.say-ed p { margin-bottom:0.6rem; }
 .say-ed p:last-child { margin-bottom:0; }
 
 /* ── scrolling build log (build_log/index.html) ───────────────────── */
