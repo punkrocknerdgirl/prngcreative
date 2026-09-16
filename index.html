@@ -748,46 +748,46 @@
     .footer-links a:hover { color: var(--pink); }
 
     /* ── RESPONSIVE ───────────────────────────────────────────── */
-    /* Hero stacks earlier than the rest of the page. Below ~1100px the
-       side-by-side art column gets narrow enough that object-fit: cover
-       crops it into a sliver, so stack it into a banner instead. */
-    @media (max-width: 1100px) {
-      .hero {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
-        min-height: 0;
-      }
-      .hero-art { order: 1; height: clamp(260px, 46vw, 400px); }
-      .hero-art img { object-position: center; }
-      .hero-art::after {
-        background: linear-gradient(to top, var(--plum-dark) 0%, rgba(58,16,37,0.5) 30%, transparent 62%);
-      }
-      .repo-rail {
-        order: 2;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 1.1rem 1.4rem;
-        padding: 0.7rem 1.25rem;
-        border-right: none;
-        border-bottom: 1px solid rgba(245,214,232,0.12);
-      }
-      .repo-rail a,
-      .rail-kicker { writing-mode: horizontal-tb; transform: none; }
-      .repo-rail .rail-more { margin-top: 0; margin-left: auto; }
-      .hero-copy {
-        order: 3;
-        text-align: left;
-        justify-self: stretch;
-        max-width: none;
-        align-self: auto;
-        padding: 3rem 2rem 3.5rem;
-      }
-      .hero-sub { margin-left: 0; }
-      .hero-buttons { justify-content: flex-start; }
+    /* Hero is always stacked: wide banner on top, repo rail, then copy.
+       The art is a 9:5 crop; on wide screens the banner is wider than
+       that, so cover trims top and bottom and we bias toward the faces. */
+    .hero {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+      min-height: 0;
     }
+    .hero-art { order: 1; height: clamp(260px, 42vw, 620px); }
+    .hero-art img { object-position: 50% 30%; }
+    .hero-art::after {
+      background: linear-gradient(to top, var(--plum-dark) 0%, rgba(58,16,37,0.5) 30%, transparent 62%);
+    }
+    .repo-rail {
+      order: 2;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1.1rem 1.4rem;
+      padding: 0.7rem 1.25rem;
+      border-right: none;
+      border-bottom: 1px solid rgba(245,214,232,0.12);
+    }
+    .repo-rail a,
+    .rail-kicker { writing-mode: horizontal-tb; transform: none; }
+    .repo-rail .rail-more { margin-top: 0; margin-left: auto; }
+    .hero-copy {
+      order: 3;
+      text-align: left;
+      justify-self: center;
+      width: 100%;
+      max-width: var(--site-width);
+      align-self: auto;
+      padding: 3rem 2rem 3.5rem;
+    }
+    .hero-sub { margin-left: 0; }
+    .hero-buttons { justify-content: flex-start; }
 
+    /* ── RESPONSIVE ───────────────────────────────────────────── */
     @media (max-width: 680px) {
       .hero-copy { padding: 2.5rem 1.25rem 3rem; }
       .repo-shelf { grid-template-columns: 1fr; }
@@ -834,16 +834,11 @@
       <a class="rail-more" href="#github" aria-label="Open the full repo shelf">↓</a>
     </aside>
 
-    <!-- full-bleed hero art. Two crops: the tall one for the side-by-side
-         desktop column, the wide one for the stacked mobile banner. A single
-         portrait file would lose two thirds of its height on a phone. -->
+    <!-- full-bleed hero banner. One wide crop, used at every size. -->
     <figure class="hero-art">
-      <picture>
-        <source media="(max-width: 1100px)" srcset="assets/hero/hero-wide.jpg" />
-        <img src="assets/hero/hero.jpg" width="1800" height="2000"
-             alt="Cartoon Ernie, pink hair and black glasses, at a laptop with a half-eaten frosted cookie in one hand while Charlie the dog looks up at her from beside the desk"
-             fetchpriority="high" />
-      </picture>
+      <img src="assets/hero/hero-wide.jpg" width="1800" height="1000"
+           alt="Cartoon Ernie, pink hair and black glasses, at a laptop with a half-eaten frosted cookie in one hand while Charlie the dog looks up at her from beside the desk"
+           fetchpriority="high" />
     </figure>
 
     <div class="hero-copy">
