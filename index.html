@@ -81,11 +81,16 @@
     nav a.cta:hover { background: var(--plum); color: #fff; }
 
     /* ── HERO ─────────────────────────────────────────────────── */
+    /* rail | full-bleed art | copy.  No padding on .hero itself —
+       that's what lets the art touch the top, bottom and left edges. */
     .hero {
       background: var(--plum-dark);
-      padding: 5rem 2rem 4rem;
       position: relative;
       overflow: hidden;
+      display: grid;
+      grid-template-columns: 2.4rem minmax(0, 0.85fr) minmax(0, 1.15fr);
+      align-items: stretch;
+      min-height: clamp(420px, 52vw, 680px);
     }
 
     /* grid lines — zine / graph paper vibe */
@@ -98,23 +103,76 @@
         linear-gradient(90deg, rgba(201,83,140,0.06) 1px, transparent 1px);
       background-size: 40px 40px;
       pointer-events: none;
+      z-index: 0;
     }
 
-    .hero-inner {
-      max-width: var(--site-width);
-      margin: 0 auto;
+    /* ── repo rail ────────────────────────────────────────────── */
+    .repo-rail {
       position: relative;
-      display: grid;
-      grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
-      gap: 3rem;
-      align-items: start;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1.25rem;
+      padding: 1.25rem 0;
+      background: rgba(0,0,0,0.3);
+      border-right: 1px solid rgba(245,214,232,0.12);
+      overflow: hidden;
+    }
+
+    /* each item is set vertically, reading bottom-to-top */
+    .repo-rail a,
+    .rail-kicker {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      white-space: nowrap;
+      font-family: var(--mono);
+      font-size: 0.64rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .rail-kicker { color: rgba(245,214,232,0.4); }
+    .repo-rail a { color: rgba(245,214,232,0.72); transition: color 0.15s; }
+    .repo-rail a:hover { color: var(--pink); }
+    /* needs .repo-rail prefix to outrank `.repo-rail a` above */
+    .repo-rail .rail-more {
+      margin-top: auto;
+      writing-mode: horizontal-tb;
+      transform: none;
+      letter-spacing: 0;
+      font-size: 0.95rem;
+      line-height: 1;
+      color: rgba(245,214,232,0.45);
+    }
+    .repo-rail .rail-more:hover { color: var(--pink); }
+
+    /* ── hero art ─────────────────────────────────────────────── */
+    .hero-art {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      overflow: hidden;
+      background: var(--plum);
+    }
+    .hero-art picture { display: block; width: 100%; height: 100%; }
+    .hero-art img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
 
     .hero-copy {
-      grid-column: 2;
+      position: relative;
+      z-index: 1;
+      padding: 4.5rem 2rem 3.5rem;
       max-width: 780px;
       text-align: right;
       justify-self: end;
+      align-self: center;
     }
 
     .hero-eyebrow {
@@ -170,138 +228,6 @@
     .btn-primary:hover { background: #b04079; }
     .btn-ghost { border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.7); }
     .btn-ghost:hover { border-color: var(--pink); color: var(--pink); }
-
-    .work-orbit {
-      grid-column: 1;
-      grid-row: 1;
-      align-self: stretch;
-      display: flex;
-      position: relative;
-      margin-top: 0.4rem;
-      padding: 1px;
-      border: 1px solid rgba(245,214,232,0.16);
-      background:
-        linear-gradient(135deg, rgba(201,83,140,0.28), rgba(255,255,255,0.04)),
-        rgba(255,255,255,0.045);
-      box-shadow: 0 24px 70px rgba(0,0,0,0.28);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      isolation: isolate;
-      transform: rotate(1deg);
-      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .work-orbit::before {
-      content: '';
-      position: absolute;
-      inset: -18px;
-      z-index: -1;
-      background:
-        radial-gradient(circle at 82% 12%, rgba(201,83,140,0.34), transparent 34%),
-        radial-gradient(circle at 12% 92%, rgba(245,214,232,0.12), transparent 38%);
-      filter: blur(10px);
-      opacity: 0.75;
-      pointer-events: none;
-    }
-
-    .work-orbit:hover {
-      transform: rotate(0deg) translateY(-3px);
-      border-color: rgba(201,83,140,0.55);
-      box-shadow: 0 30px 90px rgba(0,0,0,0.36);
-    }
-
-    .work-orbit-inner {
-      padding: 1.1rem;
-      width: 100%;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background: rgba(26,10,18,0.34);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .work-kicker {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: rgba(245,214,232,0.68);
-      margin-bottom: 0.8rem;
-    }
-
-    .work-links {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      gap: 0.35rem;
-      padding: 0.45rem 0;
-      min-height: 0;
-    }
-
-    .work-link {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1rem;
-      align-items: center;
-      padding: 0.68rem 0.75rem;
-      border: 4px solid rgba(245,214,232,0.22);
-      color: rgba(255,255,255,0.78);
-      text-decoration: none;
-      background: rgba(255,255,255,0.035);
-      transition: transform 0.14s ease, background 0.14s ease, border-color 0.14s ease, color 0.14s ease;
-    }
-
-    .work-link:hover {
-      transform: translateX(-4px);
-      border-color: rgba(201,83,140,0.58);
-      background: rgba(201,83,140,0.16);
-      color: #fff;
-    }
-
-    .work-link strong {
-      display: block;
-      font-family: var(--mono);
-      font-size: 0.77rem;
-      letter-spacing: 0.04em;
-      color: #fff;
-      line-height: 1.25;
-    }
-
-    .work-link span {
-      display: block;
-      margin-top: 0.12rem;
-      font-size: 0.72rem;
-      color: rgba(245,214,232,0.56);
-      line-height: 1.35;
-    }
-
-    .work-link em {
-      font-style: normal;
-      font-family: var(--mono);
-      color: var(--pink);
-      opacity: 0.8;
-      transition: transform 0.14s ease, opacity 0.14s ease;
-    }
-
-    .work-link:hover em {
-      transform: translateX(3px);
-      opacity: 1;
-    }
-
-    .work-more {
-      display: inline-block;
-      margin-top: 1.2rem;
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(245,214,232,0.46);
-      text-decoration: none;
-    }
-
-    .work-more:hover { color: var(--pink); }
 
     /* ── SPLIT BANNER ─────────────────────────────────────────── */
     .split-banner {
@@ -809,19 +735,56 @@
     .footer-links a:hover { color: var(--pink); }
 
     /* ── RESPONSIVE ───────────────────────────────────────────── */
-    @media (max-width: 680px) {
-      .hero { padding-top: 4rem; }
-      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .hero-copy { grid-column: auto; text-align: left; justify-self: stretch; }
+    /* Hero stacks earlier than the rest of the page. Below ~900px the
+       side-by-side art column gets narrow enough that object-fit: cover
+       crops it into a sliver, so stack it into a banner instead. */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        min-height: 0;
+      }
+      .hero-art { order: 1; height: clamp(260px, 46vw, 400px); }
+      .repo-rail {
+        order: 2;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1.1rem 1.4rem;
+        padding: 0.7rem 1.25rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(245,214,232,0.12);
+      }
+      .repo-rail a,
+      .rail-kicker { writing-mode: horizontal-tb; transform: none; }
+      .repo-rail .rail-more { margin-top: 0; margin-left: auto; }
+      .hero-copy {
+        order: 3;
+        text-align: left;
+        justify-self: stretch;
+        max-width: none;
+        align-self: auto;
+        padding: 3rem 2rem 3.5rem;
+      }
       .hero-sub { margin-left: 0; }
       .hero-buttons { justify-content: flex-start; }
-      .work-orbit { grid-column: auto; grid-row: auto; align-self: auto; display: block; transform: none; }
+    }
+
+    @media (max-width: 680px) {
+      .hero-copy { padding: 2.5rem 1.25rem 3rem; }
       .repo-shelf { grid-template-columns: 1fr; }
       .split-banner { grid-template-columns: 1fr; }
       .split-panel:last-child { border-left: none; border-top: 2px solid var(--pink); }
       .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-sidebar { border-left: none; border-top: 2px solid var(--pink); padding-left: 0; padding-top: 2rem; }
-      nav { gap: 1rem; }
+
+      /* the wordmark plus four nav items can't fit one phone-width row;
+         without wrapping they forced a ~550px min-width on the whole
+         document, which clipped every section to the right */
+      header { flex-wrap: wrap; gap: 0.5rem 1rem; padding: 0.85rem 1.25rem; }
+      nav { gap: 0.9rem; flex-wrap: wrap; }
+      nav a { font-size: 0.66rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -844,39 +807,38 @@
 
   <!-- HERO -->
   <div class="hero">
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <p class="hero-eyebrow">// field notes from the workshop</p>
-        <h1>Real work.<br><em>Real systems.</em><br>Real exasperation.</h1>
-        <p class="hero-sub">
-          My name is Ernie. I'm a working bookkeeper and systems builder who documents what I'm actually building, learning, and really screwing up — in public, with zero smart people talk. Witness me break shit on purpose in real time, then laugh yourself hoarse as you watch me try to put it back together without pitching a hissy fit.
-        </p>
-        <div class="hero-buttons">
-          <a href="#what" class="btn btn-primary">See what's here</a>
-          <a href="#buildlog" class="btn btn-ghost">Read the build log →</a>
-        </div>
-      </div>
 
-      <aside class="work-orbit" aria-label="Selected work and GitHub repositories">
-        <div class="work-orbit-inner">
-          <p class="work-kicker">// stuff with commit histories</p>
-          <div class="work-links">
-            <a class="work-link" href="https://github.com/punkrocknerdgirl/prngcreative">
-              <div><strong>prngcreative</strong><span>this site + design system</span></div>
-              <em>↗</em>
-            </a>
-            <a class="work-link" href="https://github.com/punkrocknerdgirl/ed">
-              <div><strong>ed</strong><span>assistant systems work</span></div>
-              <em>↗</em>
-            </a>
-            <a class="work-link" href="https://github.com/punkrocknerdgirl/antihub">
-              <div><strong>antihub</strong><span>QBO utility experiments</span></div>
-              <em>↗</em>
-            </a>
-          </div>
-          <a class="work-more" href="#github">open the full shelf ↓</a>
-        </div>
-      </aside>
+    <!-- thin repo rail, hugs the far left edge -->
+    <aside class="repo-rail" aria-label="GitHub repositories">
+      <span class="rail-kicker">// repos</span>
+      <a href="https://github.com/punkrocknerdgirl/prngcreative">prngcreative</a>
+      <a href="https://github.com/punkrocknerdgirl/ed">ed</a>
+      <a href="https://github.com/punkrocknerdgirl/antihub">antihub</a>
+      <a class="rail-more" href="#github" aria-label="Open the full repo shelf">↓</a>
+    </aside>
+
+    <!-- full-bleed hero art. Two crops: the tall one for the side-by-side
+         desktop column, the wide one for the stacked mobile banner. A single
+         portrait file would lose two thirds of its height on a phone.
+         TODO: replace alt="" with a real description of the finished art. -->
+    <figure class="hero-art">
+      <picture>
+        <source media="(max-width: 900px)" srcset="assets/hero/hero-wide.jpg" />
+        <img src="assets/hero/hero.jpg" width="1800" height="2000"
+             alt="" fetchpriority="high" />
+      </picture>
+    </figure>
+
+    <div class="hero-copy">
+      <p class="hero-eyebrow">// field notes from the workshop</p>
+      <h1>Real work.<br><em>Real systems.</em><br>Real exasperation.</h1>
+      <p class="hero-sub">
+        My name is Ernie. I'm a working bookkeeper and systems builder who documents what I'm actually building, learning, and really screwing up — in public, with zero smart people talk. Witness me break shit on purpose in real time, then laugh yourself hoarse as you watch me try to put it back together without pitching a hissy fit.
+      </p>
+      <div class="hero-buttons">
+        <a href="#what" class="btn btn-primary">See what's here</a>
+        <a href="#buildlog" class="btn btn-ghost">Read the build log →</a>
+      </div>
     </div>
   </div>
 
