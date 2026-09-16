@@ -499,6 +499,29 @@
       margin-bottom: 0.75rem;
     }
 
+    /* skull rating: how much the thing hurt, 1–5 */
+    .note-link { display: flex; flex-direction: column; }
+    .note-link .note-meta {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .note-skulls {
+      display: inline-flex;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+    .note-skulls svg {
+      width: 14px;
+      height: 14px;
+      fill: rgba(255,255,255,0.14);
+      transition: fill 0.15s;
+    }
+    .note-skulls svg.on { fill: var(--pink); }
+    .note-link:hover .note-skulls svg.on { fill: var(--blush); }
+
     .note-card p {
       font-size: 0.875rem;
       color: rgba(255,255,255,0.65);
@@ -874,19 +897,24 @@
         <p class="section-body section-body--wide">Project Ed, one of my current build projects, lives on <a href="https://github.com/punkrocknerdgirl/ed" target="_blank" rel="noopener">GitHub</a>.</p>
       </details>
 
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="skull" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" d="M12 2C7.1 2 3.5 5.6 3.5 10.2c0 2.5 1.1 4.5 2.9 5.9V19c0 .9.7 1.6 1.6 1.6h.9v-2h1.8v2h2.6v-2h1.8v2h.9c.9 0 1.6-.7 1.6-1.6v-2.9c1.8-1.4 2.9-3.4 2.9-5.9C20.5 5.6 16.9 2 12 2zM8.6 8.6a2.3 2.3 0 1 1 0 4.6 2.3 2.3 0 0 1 0-4.6zm6.8 0a2.3 2.3 0 1 1 0 4.6 2.3 2.3 0 0 1 0-4.6zM12 13.1l1.4 2.4h-2.8z"/>
+        </symbol>
+      </svg>
       <div class="notes-grid">
         <!-- POSTS: newest first -->
         <a class="note-card note-link" href="build_log/2026-09/quickbooks-lied-to-me-three-times.html">
           <span class="note-tag">2026-09-16 · quickbooks</span>
           <h4>QuickBooks lied to me three times in one import</h4>
           <p>Eighteen charges posted as payments, one refund vanished, and the reconcile screen pre-ticked two grand that wasn't on the statement. Zero error messages. QuickBooks doesn't fail loud — it fails polite.</p>
-          <p class="note-meta">read it →</p>
+          <p class="note-meta">read it → <span class="note-skulls" role="img" aria-label="pain level: 4 of 5 skulls"><svg class="on"><use href="#skull"/></svg><svg class="on"><use href="#skull"/></svg><svg class="on"><use href="#skull"/></svg><svg class="on"><use href="#skull"/></svg><svg class=""><use href="#skull"/></svg></span></p>
         </a>
         <a class="note-card note-link" href="build_log/2026-09/git-doesnt-stand-for-anything.html">
           <span class="note-tag">2026-09-15 · git</span>
           <h4>Git doesn't stand for anything</h4>
           <p>A month of committing before I asked what the word meant. Git is the camera, GitHub is Mom's fridge, and I'd been calling the camera the fridge the whole time.</p>
-          <p class="note-meta">read it →</p>
+          <p class="note-meta">read it → <span class="note-skulls" role="img" aria-label="pain level: 2 of 5 skulls"><svg class="on"><use href="#skull"/></svg><svg class="on"><use href="#skull"/></svg><svg class=""><use href="#skull"/></svg><svg class=""><use href="#skull"/></svg><svg class=""><use href="#skull"/></svg></span></p>
         </a>
       </div>
     </div>
