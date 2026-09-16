@@ -16,6 +16,11 @@ nav a:hover { color:var(--pink); }
 nav a.cta { background:var(--pink); color:#fff; padding:0.35rem 0.85rem; border-radius:2px; }
 nav a.cta:hover { background:var(--plum); }
 
+/* Base: no browser blue anywhere. Components below set their own color
+   and override this by specificity. */
+a { color:var(--pink); }
+a:focus-visible, summary:focus-visible { outline:2px solid var(--pink); outline-offset:3px; border-radius:1px; }
+
 .post { max-width:720px; margin:0 auto; padding:3.5rem 1.25rem 4rem; }
 .post-meta, .eyebrow { font-family:var(--mono); font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--pink); margin-bottom:0.9rem; }
 .post-head h1 { font-family:var(--title); font-style:italic; font-weight:700; font-size:clamp(2.1rem,5.6vw,3.2rem); line-height:1.15; letter-spacing:-0.01em; color:var(--plum); margin-bottom:1.5rem; }
@@ -26,6 +31,10 @@ nav a.cta:hover { background:var(--plum); }
 .post-body p { margin-bottom:1.15rem; }
 .post-body p.eyebrow { margin-bottom:1.5rem; }
 .post-body code { font-family:var(--mono); font-size:0.85em; background:var(--blush-light); color:var(--plum); padding:0.1em 0.35em; border-radius:2px; }
+/* prose links inside a post */
+.post-body a { color:var(--plum); font-weight:700; text-decoration:underline; text-decoration-color:var(--pink); text-decoration-thickness:1px; text-underline-offset:0.18em; transition:color 0.15s; }
+.post-body a:hover { color:var(--pink); }
+.post-body cite { font-style:italic; }
 .post-body pre { background:var(--plum-dark); color:#fff; padding:1.1rem 1.25rem; border-left:3px solid var(--pink); margin:1.25rem 0 1.25rem; overflow-x:auto; }
 .post-body pre code { background:none; color:inherit; padding:0; font-size:0.9rem; line-height:1.6; }
 
@@ -50,7 +59,22 @@ nav a.cta:hover { background:var(--plum); }
 .ed-toggle[open] summary::before { transform:rotate(90deg); }
 .ed-toggle summary:hover { border-color:var(--pink); background:var(--blush-light); }
 .ed-toggle[open] summary { margin-bottom:0.9rem; }
-.ed-toggle p { margin-bottom:0; }
+
+/* Paragraph spacing without a single <br>: the container owns the gap,
+   the paragraphs own nothing. Change one number, all gaps move. */
+.ed-bio-body { display:flex; flex-direction:column; gap:1.1rem; }
+.ed-bio-body p { margin:0; font-size:0.95rem; line-height:1.7; color:var(--muted); }
+.ed-bio-body cite { font-style:italic; }
+/* must come after .post-foot a, which sets mono + no underline for the
+   "all build log posts" link and would otherwise win on equal specificity */
+.ed-bio-body a {
+  font-family:var(--body); font-size:1em; letter-spacing:normal;
+  color:var(--plum); font-weight:700;
+  text-decoration:underline; text-decoration-color:var(--pink);
+  text-decoration-thickness:1px; text-underline-offset:0.18em;
+  transition:color 0.15s, text-decoration-color 0.15s;
+}
+.ed-bio-body a:hover { color:var(--pink); }
 
 footer { background:var(--plum-dark); padding:2.5rem 2rem; border-top:2px solid var(--pink); }
 .footer-inner { max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }

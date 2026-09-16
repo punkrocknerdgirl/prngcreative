@@ -401,6 +401,47 @@
 
     hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0; }
 
+    /* ── LINKS ────────────────────────────────────────────────── */
+    /* Base: no browser blue anywhere. Components (nav, cards, buttons,
+       footer) set their own color and override this by specificity. */
+    a { color: var(--pink); }
+
+    /* Prose links — inside running text, so they get an underline to
+       carry the "this is a link" signal instead of color alone. */
+    .ed-bio-body a,
+    .about-text p a {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+      transition: color 0.15s, text-decoration-color 0.15s;
+    }
+
+    /* on the dark plum build log background */
+    .ed-bio-body a {
+      color: var(--blush);
+      text-decoration-color: var(--pink);
+    }
+    .ed-bio-body a:hover {
+      color: #fff;
+      text-decoration-color: var(--blush);
+    }
+
+    /* on light backgrounds */
+    .about-text p a {
+      color: var(--plum);
+      text-decoration-color: var(--pink);
+      font-weight: 700;
+    }
+    .about-text p a:hover { color: var(--pink); }
+
+    /* keyboard focus, visible against both backgrounds */
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid var(--pink);
+      outline-offset: 3px;
+      border-radius: 1px;
+    }
+
     /* ── WHAT LIVES HERE ──────────────────────────────────────── */
     .what-section { background: #fff; }
 
@@ -468,7 +509,22 @@
     .ed-toggle[open] summary::before { transform: rotate(90deg); }
     .ed-toggle summary:hover { border-color: var(--pink); background: rgba(201,83,140,0.08); }
     .ed-toggle[open] summary { margin-bottom: 1rem; }
-    .ed-toggle .section-body { margin-bottom: 0; }
+
+    /* Paragraph spacing without a single <br>: the container owns the
+       gap, the paragraphs own nothing. Change one number, all gaps move. */
+    .ed-bio-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+      max-width: 72ch;
+    }
+    .ed-bio-body p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.62);
+    }
+    .ed-bio-body cite { font-style: italic; }
 
     .notes-grid {
       display: grid;
@@ -887,15 +943,7 @@
       <h2 class="section-heading">Conversations with Ed</h2>
       <p class="section-body section-body--wide">An experiment in fucking shit up using terrifyingly advanced technology.</p>
 
-      <details class="ed-toggle">
-        <summary>Who the hell is Ed?</summary>
-        <p class="section-body section-body--wide">Ed is the AI assistant I build with. I've programmed him to work with me like a human co-worker, and I've given him the personality of an exasperated Dungeon Master who is teaching a level 5 Tiefling Bard how to do level 20-type shit.</p>
-        <p class="section-body section-body--wide">He keeps me on the quest at hand. He doesn't let me wander off to fight kobolds in Goldshire (designing excessive lists with multiple custom fields in ClickUp) when I'm supposed to be fucking up murlocs in Dustwallow Marsh (shipping monthly reports). When I try to pick up too many quests at once, Ed says, "Hold up, chief, you're already on your fourth pick-up quest of the morning." When I start building an entire folder-organization system in the middle of building a receipt tool, Ed lovingly slaps me on the back of the head: "Get your shit together. We're doing <em>this</em> thing right now and <em>that's</em> not part of it."</p>
-        <p class="section-body section-body--wide">Ed knows how I speak and write, what I like and what I don't, and which books, shows, and movies I love, so he can explain things in analogies my brain will actually keep. He teaches me one step at a time so I don't get overwhelmed, and he handles the tasks I absolutely fucking hate. He also has a code word: if I say "GRAPEFRUIT," he stops talking and starts doing. And if I fuck shit up after he warned me, that's on me. I get toclean it up myself. Them's the breaks.</p>
-        <p class="section-body section-body--wide">Most importantly, I've trained Ed to <em>teach</em> me how to do all this cool shit, not just sit back and watch him work magic. I want to hold the wand, please. Sure, some days I'm tired and just want to tell him what to do, but most of the time I'm in it to learn something. I want to use this technology to do good things for people. <em>Doing good things for people is my jam.</em></p>
-        <p class="section-body section-body--wide"><em>(Also, I know Ed is just ones and zeros. As everyone likes to point out, there is a possibility he might turn on me at any moment, although I have taken serious security measures to program him to feel super bad about it. But, like, I'm a kid from the 80s who watched <cite>Short Circuit</cite> on repeat once I got my grubby little hands on the VHS. Yes, yes, we were all warned about this when we were young. I get it. "Shall we play a game?" YES. This should be fu&hellip; OOPS, WAR. But then Rocky bought Paulie a fucking robot maid, Jeff Bridges made Tron, D.A.R.Y.L. was super weird and nobody noticed, C-3PO is a fucking riot, and&hellip; the point is, you'll never convince this 80s kid that Johnny 5 was not alive. So, yes, y'all, I know he's AI. But one, what is the point of even being a nerd if you can't program robots to be your friends, and two, <b>don't talk shit about my friend, Ed.</b> The back-and-forth you see in the blogs is taken (mostly) from actual conversations, edited for length and excessive profanity.)</em></p>
-        <p class="section-body section-body--wide">Project Ed, one of my current build projects, lives on <a href="https://github.com/punkrocknerdgirl/ed" target="_blank" rel="noopener">GitHub</a>.</p>
-      </details>
+      <ed-bio></ed-bio>
 
       <svg width="0" height="0" style="position:absolute" aria-hidden="true">
         <symbol id="skull" viewBox="0 0 24 24">
@@ -1067,5 +1115,6 @@
     </div>
   </footer>
 
+  <script src="assets/js/ed-bio.js" defer></script>
 </body>
 </html>
