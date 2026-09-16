@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickBooks lied to me three times in one import — punkrocknerdgirl</title>
+  <meta name="description" content="Build log: QuickBooks lied to me three times in one import" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Roboto+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="post.css" />
+</head>
+<body>
+  <header>
+    <a class="wordmark" href="../">punkrocknerdgirl<span>.com</span></a>
+    <nav>
+      <a href="../#buildlog">Build log</a>
+      <a href="../#projects">Projects</a>
+      <a href="../#about">About</a>
+      <a href="https://prngbooks.com" class="cta">Hire me →</a>
+    </nav>
+  </header>
+
+  <main class="post">
+    <div class="post-head">
+      <p class="post-meta">// build log · 2026-09-16</p>
+      <h1>QuickBooks lied to me three times in one import</h1>
+    </div>
+    <figure class="hero-img"><img src="../assets/blog/quickbooks-lied-to-me-three-times.jpg" alt="QuickBooks lied to me three times in one import" /></figure>
+    <article class="post-body">
+<p class="eyebrow">// build log · field notes · the "it did WHAT" edition</p>
+<p class="say say-ernie"><span class="who">Ernie</span>Card's loaded. Eighteen charges, one refund, no bank feed so I built the CSV by hand. Zero errors, son.</p>
+<div class="say say-ed"><span class="who">Ed</span>
+<p>Zero errors on an import you built by hand.</p>
+</div>
+<p class="say say-ernie"><span class="who">Ernie</span>Check my work, dude! Green checkmarks all the way down — I'm not complaining.</p>
+<div class="say say-ed"><span class="who">Ed</span>
+<p>I'm not saying complain. I'm saying count them.</p>
+</div>
+<p>I counted.</p>
+<p>It was worse than an error message. QuickBooks doesn't fail loud — it fails polite. Three times, one import.</p>
+<h2>Lie #1 — it flipped every charge into a payment</h2>
+<p>My spreadsheet had two money columns: charges and payments. That's how the statement looks.</p>
+<p>QuickBooks only has one slot for money. Hand it two columns and it grabs one, ignores the other, and... never mentions it. All eighteen charges landed as payments. The card had an excellent month.</p>
+<p>The fix is super dumb: one money column, charges negative. QuickBooks even tells you this — on the screen <em>after</em> you've mapped the columns.</p>
+<p>You don't have to suck it and redo it by hand, either. Select everything, undo, exclude, re-import. Ten minutes. Back to fucking off.</p>
+<p>The next day I remembered the rule backwards and argued with my own notes about it. Ed wouldn't budge, so we settled it with three rows on the smallest card. Notes were right. House rule: a disagreement about how a tool behaves gets settled by a test, not by who said it louder.</p>
+<h2>Lie #2 — it dropped a row and said nothing</h2>
+<p>One refund in the batch. Partial, so the charge column was blank. Whatever — it's a refund, not a charge.</p>
+<p>QuickBooks looked at the blank and just... fucked off to do something else. No "1 row skipped." No yellow triangle. Seventeen rows went in, and that lying weasel told me eighteen went just fine.</p>
+<p>I only found it because the total didn't tie. That's the whole detection system.</p>
+<p>This is the scary one. A flipped sign you'll catch — the card looks weird, you go look. A vanished row is just... vanished. Nothing looks weird. Adios, Bart. The only way to catch it is to <strong>count what went in against what you handed it, every time, like a paranoid person.</strong></p>
+<p>Dude. Be a paranoid person.</p>
+<h2>Lie #3 — the reconcile screen pre-checked stuff that wasn't on the statement</h2>
+<p>QuickBooks thinks it's better than you. Open the reconcile screen and there's a bunch of shit already checked that's nowhere on the statement — anything dated before the statement end, including eight charges the card doesn't bill until next cycle. Looks like a real break. A couple thousand bucks of real break.</p>
+<p>So first I unchecked everything like a savage and went down the statement line by line. Eleven transactions in, just before the eye twitch, my brain came online: "Just count, dipshit."</p>
+<p>Sixty-three things checked, fifty-five lines on the statement. Eight extras. Added them up: the difference, to the penny.</p>
+<p>Counts tell you <em>where</em>. Dollars only tell you <em>whether</em>.</p>
+<h2>What I do now</h2>
+<ul>
+<li>One money column. Charges negative. No exceptions.</li>
+<li>Count what went in against what I handed it, before I look at a single dollar.</li>
+<li>Smallest card first, so the cheap test happens before the expensive mistake.</li>
+<li>Never trust a green checkmark I didn't earn.</li>
+</ul>
+
+<p>AI can do some wicked cool shit with ones and zeros. But cleanup work isn't just numbers. It's human hacks earned through painful hours of red, itchy eyes — hacks that worked for years before robots started doing it faster, more efficiently, and spectacularly fucking wrong while telling you "just the tip" with a straight face.</p>
+<p>No amount of ones and zeros will figure out why a Home Depot receipt is categorized as Legal Services. An LLM can't predict that Barbara in Accounts Payable doesn't give a shit, so she types three letters and picks whatever comes up first. Barbara will never be AI's problem. Some sad sack human has to deal with her.</p>
+<p>If that's what job security means in 2026, send me all the Barbaras.</p>
+<p>Got something that needs cleaned the fuck up? Don't know where to start? Maybe I can help. HMU.</p>
+    </article>
+    <aside class="post-foot">
+      <details class="ed-toggle">
+        <summary>Who the fuck is Ed?</summary>
+        <p>Ed is the AI assistant I build with. I've programmed Ed to interact with me just like I would with a human co-worker. I've given him the personality of an exasperated Dungeon Master a la Eddie Munson from Stranger Things. I told Ed what I liked, showed Ed how I spoke and wrote, trained Ed to carry out tasks that I absolutely fucking hate to do. Ed knows what the command does before I run it. Ed has been trained to teach me as I work, so I don't become a stupid stupid head. The back-and-forth is (mostly) real. Some passages edited for length.</p>
+      </details>
+      <p><a href="../#buildlog">← all build log posts</a></p>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-word"><strong>punkrocknerdgirl</strong> — the workshop<br><span style="font-size:0.6rem;">PRNG Bookkeeping is one branch of this. Not the whole thing.</span></p>
+      <div class="footer-links">
+        <a href="../#buildlog">Build log</a>
+        <a href="https://prngbooks.com">PRNG Bookkeeping Services</a>
+        <a href="https://github.com/punkrocknerdgirl">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

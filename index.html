@@ -445,6 +445,29 @@
     .notes-section .section-heading { color: #fff; }
     .notes-section .section-body { color: rgba(255,255,255,0.5); }
     .section-body--wide { max-width: none; margin-bottom: 1.5rem; }
+    .ed-toggle { margin-bottom: 1.5rem; }
+    .ed-toggle summary {
+      cursor: pointer;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--pink);
+      padding: 0.45rem 0.9rem;
+      border: 1px solid rgba(201,83,140,0.45);
+      border-radius: 2px;
+      user-select: none;
+    }
+    .ed-toggle summary::-webkit-details-marker { display: none; }
+    .ed-toggle summary::before { content: "▸"; font-size: 0.7rem; transition: transform 0.15s ease; }
+    .ed-toggle[open] summary::before { transform: rotate(90deg); }
+    .ed-toggle summary:hover { border-color: var(--pink); background: rgba(201,83,140,0.08); }
+    .ed-toggle[open] summary { margin-bottom: 1rem; }
+    .ed-toggle .section-body { margin-bottom: 0; }
 
     .notes-grid {
       display: grid;
@@ -804,7 +827,7 @@
     <div class="section-inner">
       <h2 class="section-heading">What lives here</h2>
       <p class="section-body">
-        Not a blog. Not a brand platform. More like a public notebook for a working adult who builds things, breaks things, and writes it down.
+        Think of it like a public notebook for a working adult who builds things, breaks things, and struggles to write it all down before she forgets wtf she was doing.
       </p>
       <div class="pillars">
         <div class="pillar">
@@ -834,13 +857,28 @@
   <hr class="rule" />
 
   <!-- BUILD LOG -->
+        
   <section class="notes-section" id="buildlog">
+    <p class="section-eyebrow">// build log</p>
+     <h2 class="section-heading">Conversations with Ed</h2>
+     <p class="section-body section-body--wide">An experiment in fucking shit up using terrifyingly advanced technology.</p>
+     
     <div class="section-inner">
-      <p class="section-eyebrow">// build log</p>
-      <p class="section-body section-body--wide"><b>Who the fuck is Ed?</b> Ed is the AI assistant I build with. I've programmed Ed to interact with me just like I would with a human co-worker. I've given him the personality of an exasperated Dungeon Master a la Eddie Munson from Stranger Things. I told Ed what I liked, showed Ed how I spoke and wrote, trained Ed to carry out tasks that I absolutely fucking hate to do. Ed knows what the command does before I run it. Ed has been trained to teach me as I work, so I don't become a stupid stupid head. The back-and-forth is (mostly) real. Some passages edited for length.<br><br><em>(Yes, I am well aware that Ed is ones and zeros and not my friend, and might turn on me at any moment - athough I have programmed him so that he would feel super bad about doing it - but one, why be a nerd if you can't program robots to be your friends, and two, don't talk shit about my friend, Ed.)</em></p>
-      <h2 class="section-heading">What I broke, fixed, or finally understood</h2>
+      
+      <details class="ed-toggle">
+      
+        <summary>Who the fuck is Ed?</summary>
+        <p class="section-body section-body--wide">Ed is the AI assistant I build with. I've programmed Ed to interact with me just like I would with a human co-worker. I've given him the personality of an exasperated Dungeon Master a la Eddie Munson from Stranger Things. I told Ed what I liked, showed Ed how I spoke and wrote, trained Ed to carry out tasks that I absolutely fucking hate to do. Ed knows what the command does before I run it. Ed has been trained to teach me as I work, so I don't become a stupid stupid head. The back-and-forth is (mostly) real. Some passages edited for length.<br><br><em>(Yes, I am well aware that Ed is ones and zeros and not my friend, and might turn on me at any moment - although I have programmed him so that he would feel super bad about doing it - but one, why be a nerd if you can't program robots to be your friends, and two, don't talk shit about my friend, Ed.)</em></p>
+      </details>
+  
       <div class="notes-grid">
         <!-- POSTS: newest first -->
+        <a class="note-card note-link" href="build_log/quickbooks-lied-to-me-three-times.html">
+          <span class="note-tag">2026-09-16 · quickbooks</span>
+          <h4>QuickBooks lied to me three times in one import</h4>
+          <p>Eighteen charges posted as payments, one refund vanished, and the reconcile screen pre-ticked two grand that wasn't on the statement. Zero error messages. QuickBooks doesn't fail loud — it fails polite.</p>
+          <p class="note-meta">read it →</p>
+        </a>
         <a class="note-card note-link" href="build_log/git-doesnt-stand-for-anything.html">
           <span class="note-tag">2026-09-15 · git</span>
           <h4>Git doesn't stand for anything</h4>
@@ -856,7 +894,7 @@
   <!-- PROJECTS LOG -->
   <section class="projects-section" id="projects">
     <div class="section-inner">
-      <p class="section-eyebrow">// active build log</p>
+      <p class="section-eyebrow">// current projects</p>
       <h2 class="section-heading">Projects</h2>
       <p class="section-body">
         Named projects across automation, tools, and systems work. All grounded in industries I've actually worked in.
@@ -946,8 +984,8 @@
           I’ve spent enough years inside small business disasters — blown-up bank feeds, mangled A/R, payroll written on the back of a grease-smeared scale ticket — that I stopped complaining and started building tools to fix the exact problems I’d already survived.
         </p>
         <p>Gen-X is officially old now. Hooray. We are <i>thrilled.</i> But, we’ve put enough time in various fields to know where all the bodies are buried. Our entire lives, Gen-X have spent significant time and energy trying to figure out how to get shit done so we can do... nothing. Any shortcut that buys back actual fuck-off-able hours, we will find it.</p>
-        <p>I still write on actual paper. With actual pens. Sometimes even in cursive, on sticky notes I lose and spend twenty minutes on the floor searching for until my knees and back hurt and I need to lie down. But I also watched my dad build Frankenstein computers out of swap meet parts and sheer stubbornness. Not pretty. Completely functional. To eight-year-old me — pure magic.</p>
-        <p>So, come watch an old dog learn new — you know, I’ve never liked that saying. Come or don’t. I don’t give two turtle shits. I’ll just be here doing cool shit. If you want to not be lame, by all means, pull up a chair. If you want to continue being lame, that’s your choice. There’s the door. Tell your mom I said, “hi.” Peace.</p>
+        <p>I still write on actual paper. With actual pens. Sometimes even in cursive, on sticky notes I lose and spend twenty minutes on the floor searching for until my knees and back hurt and I need to lie down. But I also watched my dad build Frankenstein computers out of swap meet parts and sheer stubbornness. Not pretty. Completely functional. To eight-year-old me — absolute magic.</p>
+        <p>This is your invitation to watch me fail spectacularly. Pull up a chair; I’ll be here doing cool shit if you want to hang. If you, instead, want to continue being lame and not learn anything, that’s your choice. See you on the flip side. Tell your mom I said, “hi.” Peace.</p>
 
         <div class="about-tags">
           <span class="tag">QuickBooks Online</span>
