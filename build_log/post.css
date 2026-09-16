@@ -56,16 +56,17 @@ a:focus-visible, summary:focus-visible { outline:2px solid var(--pink); outline-
 .post-body pre { background:var(--plum-dark); color:#fff; padding:1.1rem 1.25rem; border-left:3px solid var(--pink); margin:1.25rem 0 1.25rem; overflow-x:auto; }
 .post-body pre code { background:none; color:inherit; padding:0; font-size:0.9rem; line-height:1.6; }
 
-/* Conversation transcript: a continuous shaded strip, distinct from commentary */
+/* Conversation transcript: one thin rule down the left, no fills; the two
+   voices differ by text colour (Ernie ink, Ed plum) and the small name label */
 .post-body .say { margin:0; padding:0.7rem 1rem; font-size:0.9rem; line-height:1.55; border-left:3px solid var(--rule); }
 .say .who { font-family:var(--mono); font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; display:block; margin-bottom:0.3rem; }
-.say-ernie { border-color:var(--pink); background:var(--blush-light); }
+.say-ernie { color:var(--ink); }
 .say-ernie .who { color:var(--pink); }
-.say-ed { border-color:var(--plum); background:#F7E2EE; }
+.say-ed { color:var(--plum); }
 .say-ed .who { color:var(--plum); }
 .post-body :not(.say) + .say { margin-top:1.25rem; }
 .post-body .say + :not(.say) { margin-top:1.25rem; }
-.post-body .say + .say { border-top:1px solid rgba(255,255,255,0.7); }
+.post-body .say + .say { border-top:1px solid var(--rule); }
 
 .post-foot { margin-top:3.5rem; padding-top:1.75rem; border-top:1px solid var(--rule); color:var(--muted); font-size:0.95rem; }
 .post-foot p { margin-bottom:0.9rem; }
