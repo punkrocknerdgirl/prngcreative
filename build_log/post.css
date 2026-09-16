@@ -24,6 +24,15 @@ a:focus-visible, summary:focus-visible { outline:2px solid var(--pink); outline-
 .post { max-width:720px; margin:0 auto; padding:3.5rem 1.25rem 4rem; }
 .post-meta, .eyebrow { font-family:var(--mono); font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--pink); margin-bottom:0.9rem; }
 .post-head h1 { font-family:var(--title); font-style:italic; font-weight:700; font-size:clamp(2.1rem,5.6vw,3.2rem); line-height:1.15; letter-spacing:-0.01em; color:var(--plum); margin-bottom:1.5rem; }
+/* skull rating: how much the thing hurt, 1–5. CSS owns the glyph (a masked
+   box), so a post only needs <i class="on"></i> x5 and no inline SVG. */
+.post-skulls { display:flex; align-items:center; gap:3px; margin:-0.6rem 0 1.6rem; }
+.post-skulls i { display:block; width:16px; height:16px; background:rgba(92,31,59,0.16);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill-rule='evenodd' d='M12 2C7.1 2 3.5 5.6 3.5 10.2c0 2.5 1.1 4.5 2.9 5.9V19c0 .9.7 1.6 1.6 1.6h.9v-2h1.8v2h2.6v-2h1.8v2h.9c.9 0 1.6-.7 1.6-1.6v-2.9c1.8-1.4 2.9-3.4 2.9-5.9C20.5 5.6 16.9 2 12 2zM8.6 8.6a2.3 2.3 0 1 1 0 4.6 2.3 2.3 0 0 1 0-4.6zm6.8 0a2.3 2.3 0 1 1 0 4.6 2.3 2.3 0 0 1 0-4.6zM12 13.1l1.4 2.4h-2.8z'/></svg>") center/contain no-repeat;
+          mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill-rule='evenodd' d='M12 2C7.1 2 3.5 5.6 3.5 10.2c0 2.5 1.1 4.5 2.9 5.9V19c0 .9.7 1.6 1.6 1.6h.9v-2h1.8v2h2.6v-2h1.8v2h.9c.9 0 1.6-.7 1.6-1.6v-2.9c1.8-1.4 2.9-3.4 2.9-5.9C20.5 5.6 16.9 2 12 2zM8.6 8.6a2.3 2.3 0 1 1 0 4.6 2.3 2.3 0 0 1 0-4.6zm6.8 0a2.3 2.3 0 1 1 0 4.6 2.3 2.3 0 0 1 0-4.6zM12 13.1l1.4 2.4h-2.8z'/></svg>") center/contain no-repeat; }
+.post-skulls i.on { background:var(--pink); }
+.post-skulls .skull-label { font-family:var(--mono); font-size:0.66rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-left:0.6rem; }
+
 .hero-img { margin:0 0 2.5rem; }
 .hero-img img { width:100%; height:auto; display:block; border:1px solid var(--rule); }
 
@@ -86,3 +95,17 @@ footer { background:var(--plum-dark); padding:2.5rem 2rem; border-top:2px solid 
 @media (max-width:640px){ header{padding:0.85rem 1rem} nav{gap:1rem} nav a{font-size:0.68rem} }
 .say-ed p { margin-bottom:0.8rem; }
 .say-ed p:last-child { margin-bottom:0; }
+
+/* ── scrolling build log (build_log/index.html) ───────────────────── */
+.reading-bar { position:sticky; top:var(--hdr,56px); z-index:90; background:var(--blush-light); border-bottom:1px solid var(--rule);
+  padding:0.5rem 1.25rem; display:flex; align-items:baseline; gap:0.6rem; font-family:var(--mono); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; }
+.reading-bar[hidden] { display:none; }
+.reading-bar .rb-label { color:var(--pink); flex-shrink:0; }
+.reading-bar .rb-title { color:var(--plum); font-family:var(--title); font-style:italic; font-weight:700; font-size:0.95rem; letter-spacing:0; text-transform:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; }
+.reading-bar .rb-count { color:var(--muted); margin-left:auto; flex-shrink:0; }
+.scroll-post { scroll-margin-top:calc(var(--hdr,56px) + 2.6rem); }
+.scroll-post + .scroll-post { border-top:2px solid var(--pink); position:relative; }
+.scroll-post + .scroll-post::before { content:"// keep reading"; position:absolute; top:-0.7rem; left:1.25rem; background:#fff; padding:0 0.5rem; font-family:var(--mono); font-size:0.66rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--pink); }
+.scroll-post .permalink { font-family:var(--mono); font-size:0.7rem; letter-spacing:0.08em; color:var(--muted); text-decoration:none; margin-left:0.75rem; }
+.scroll-post .permalink:hover { color:var(--pink); }
+.log-foot { max-width:720px; margin:0 auto; padding:0 1.25rem 4rem; }

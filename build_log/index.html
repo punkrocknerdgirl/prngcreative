@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Build log — punkrocknerdgirl</title>
+  <meta name="description" content="Conversations with Ed. Every build log post, newest first, one long scroll." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Roboto+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="post.css" />
+</head>
+<body>
+  <header>
+    <a class="wordmark" href="../">punkrocknerdgirl<span>.com</span></a>
+    <nav>
+      <a href="./">Build log</a>
+      <a href="../#projects">Projects</a>
+      <a href="../#about">About</a>
+      <a href="https://prngbooks.com" class="cta">Hire me →</a>
+    </nav>
+  </header>
+
+  <!-- sticky "where am I" bar; filled in by build-log.js as you scroll -->
+  <div class="reading-bar" hidden aria-live="polite">
+    <span class="rb-label">you're reading</span>
+    <span class="rb-title"></span>
+    <span class="rb-count"></span>
+  </div>
+
+  <!-- ONE ENTRY PER POST, NEWEST FIRST. Each article pulls its content from
+       the post's own file, so a post is edited in one place only.
+       To add a post: copy an <article> block, set id to the post's slug and
+       data-src to its path. The link inside is the no-JS fallback. -->
+  <main class="log">
+    <article class="post scroll-post" id="quickbooks-lied-to-me-three-times" data-src="2026-09/quickbooks-lied-to-me-three-times.html">
+      <p class="post-meta">// build log · 2026-09-16</p>
+      <p><a href="2026-09/quickbooks-lied-to-me-three-times.html">QuickBooks lied to me three times in one import →</a></p>
+    </article>
+    <article class="post scroll-post" id="git-doesnt-stand-for-anything" data-src="2026-09/git-doesnt-stand-for-anything.html">
+      <p class="post-meta">// build log · 2026-09-15</p>
+      <p><a href="2026-09/git-doesnt-stand-for-anything.html">Git doesn't stand for anything →</a></p>
+    </article>
+  </main>
+
+  <aside class="post-foot log-foot">
+    <ed-bio></ed-bio>
+    <p><a href="../#buildlog">← back to the workshop</a></p>
+  </aside>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-word"><strong>punkrocknerdgirl</strong> — the workshop<br><span style="font-size:0.6rem;">PRNG Bookkeeping is one branch of this. Not the whole thing.</span></p>
+      <div class="footer-links">
+        <a href="./">Build log</a>
+        <a href="https://prngbooks.com">PRNG Bookkeeping Services</a>
+        <a href="https://github.com/punkrocknerdgirl">GitHub</a>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/ed-bio.js" defer></script>
+  <script src="../assets/js/build-log.js" defer></script>
+</body>
+</html>

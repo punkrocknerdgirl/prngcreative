@@ -157,6 +157,17 @@
       background: var(--plum);
     }
     .hero-art picture { display: block; width: 100%; height: 100%; }
+    /* fade the art into the plum on the headline side, same trick as
+       the PRNG hero. Stacked layout fades the bottom edge instead. */
+    .hero-art::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(to right, transparent 58%, rgba(58,16,37,0.55) 84%, var(--plum-dark) 100%),
+        linear-gradient(to top, rgba(58,16,37,0.45) 0%, transparent 22%);
+    }
     .hero-art img {
       display: block;
       width: 100%;
@@ -745,6 +756,9 @@
         min-height: 0;
       }
       .hero-art { order: 1; height: clamp(260px, 46vw, 400px); }
+      .hero-art::after {
+        background: linear-gradient(to top, var(--plum-dark) 0%, rgba(58,16,37,0.5) 30%, transparent 62%);
+      }
       .repo-rail {
         order: 2;
         flex-direction: row;
@@ -819,13 +833,13 @@
 
     <!-- full-bleed hero art. Two crops: the tall one for the side-by-side
          desktop column, the wide one for the stacked mobile banner. A single
-         portrait file would lose two thirds of its height on a phone.
-         TODO: replace alt="" with a real description of the finished art. -->
+         portrait file would lose two thirds of its height on a phone. -->
     <figure class="hero-art">
       <picture>
         <source media="(max-width: 900px)" srcset="assets/hero/hero-wide.jpg" />
         <img src="assets/hero/hero.jpg" width="1800" height="2000"
-             alt="" fetchpriority="high" />
+             alt="Cartoon Ernie, pink hair and black glasses, at a laptop with a half-eaten frosted cookie in one hand while Charlie the dog looks up at her from beside the desk"
+             fetchpriority="high" />
       </picture>
     </figure>
 
@@ -914,13 +928,13 @@
       </svg>
       <div class="notes-grid">
         <!-- POSTS: newest first -->
-        <a class="note-card note-link" href="build_log/2026-09/quickbooks-lied-to-me-three-times.html">
+        <a class="note-card note-link" href="build_log/#quickbooks-lied-to-me-three-times">
           <span class="note-tag">2026-09-16 · quickbooks</span>
           <h4>QuickBooks lied to me three times in one import</h4>
           <p>Eighteen charges posted as payments, one refund vanished, and the reconcile screen pre-ticked two grand that wasn't on the statement. Zero error messages. QuickBooks doesn't fail loud — it fails polite.</p>
           <p class="note-meta">read it → <span class="note-skulls" role="img" aria-label="pain level: 4 of 5 skulls"><svg class="on"><use href="#skull"/></svg><svg class="on"><use href="#skull"/></svg><svg class="on"><use href="#skull"/></svg><svg class="on"><use href="#skull"/></svg><svg class=""><use href="#skull"/></svg></span></p>
         </a>
-        <a class="note-card note-link" href="build_log/2026-09/git-doesnt-stand-for-anything.html">
+        <a class="note-card note-link" href="build_log/#git-doesnt-stand-for-anything">
           <span class="note-tag">2026-09-15 · git</span>
           <h4>Git doesn't stand for anything</h4>
           <p>A month of committing before I asked what the word meant. Git is the camera, GitHub is Mom's fridge, and I'd been calling the camera the fridge the whole time.</p>
